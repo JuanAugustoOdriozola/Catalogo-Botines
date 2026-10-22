@@ -1,0 +1,232 @@
+/* Layout Principal tipo E-commerce */
+.designs-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+.product-card-ecommerce {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Columna izquierda más ancha para fotos, derecha para info */
+  gap: 3rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .product-card-ecommerce {
+    grid-template-columns: 1fr; /* En pantallas chicas se apila */
+  }
+}
+
+/* Columna Izquierda (Galería) */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.product-main-image-container {
+  width: 100%;
+  height: 380px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.product-main-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Miniaturas en fila horizontal */
+.product-thumbnails-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.product-thumb-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  border: 2px solid var(--border-color);
+  background: #fff;
+  padding: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.product-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-thumb-btn--active {
+  border-color: #000;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* Columna Derecha (Detalles) */
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.rating-score {
+  font-weight: bold;
+}
+
+.rating-stars {
+  color: #fbbf24;
+  letter-spacing: 2px;
+}
+
+.rating-count {
+  color: var(--text-muted);
+}
+
+.product-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+}
+
+.product-description {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-main);
+}
+
+.product-color-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.product-color-info strong {
+  color: var(--text-main);
+}
+
+/* Talles estilo Tienda Oficial */
+.product-sizes-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.sizes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.size-guide {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.product-sizes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.product-size-btn {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 10px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.product-size-btn:hover {
+  border-color: var(--text-main);
+}
+
+.product-size-btn--active {
+  background-color: var(--text-main);
+  color: #000;
+  font-weight: bold;
+  border-color: var(--text-main);
+}
+
+/* Sección de Variantes de Color en Columna Derecha */
+.product-color-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.product-color-variants-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.color-variant-btn {
+  width: 55px;
+  height: 55px;
+  border-radius: 6px;
+  border: 2px solid var(--border-color);
+  background: #ffffff;
+  padding: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.color-variant-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.color-variant-btn--active {
+  border-color: #000000;
+  box-shadow: 0 0 0 2px var(--accent);
+}
