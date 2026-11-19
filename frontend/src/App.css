@@ -61,3 +61,45 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 .cta { display: block; margin-top: 28px; text-align: center; background: #22c55e; color: #052e13; font-weight: 800; padding: 16px; border-radius: 12px; text-decoration: none; transition: .2s; }
 .cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+
+/* ===== RESPONSIVE ===== */
+.gallery, .info { min-width: 0; }   /* deja que la columna se achique en celular */
+img { max-width: 100%; }
+
+@media (max-width: 900px) {
+  .product { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .info h2 { font-size: 1.6rem; }
+  .price { font-size: 1.5rem; margin-bottom: 16px; }
+}
+
+@media (max-width: 600px) {
+  .app { padding: 16px 12px 40px; }
+
+  .top { flex-direction: column; align-items: stretch; gap: 12px; margin-bottom: 16px; }
+  .top h1 { font-size: 1.3rem; text-align: center; }
+  .brands { justify-content: space-between; }
+  .brands button { flex: 1; padding: 10px 8px; }
+
+  .tabs { margin-bottom: 12px; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs button { flex: 0 0 auto; white-space: nowrap; padding: 10px 14px; }
+
+  /* los diseños (F11, F5...) pasan a una sola fila deslizable */
+  .chips { flex-wrap: nowrap; overflow-x: auto; margin: 0 -12px 16px; padding: 0 12px 4px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chips button { flex: 0 0 auto; white-space: nowrap; }
+
+  .stage { border-radius: 10px; cursor: default; touch-action: pan-y; }
+  .nav { width: 36px; height: 36px; font-size: 1.2rem; }
+  .nav.prev { left: 8px; }
+  .nav.next { right: 8px; }
+  .thumbs button { flex-basis: 60px; height: 60px; }
+
+  .swatches { grid-template-columns: repeat(auto-fill, minmax(52px, 1fr)); max-height: 220px; }
+  .sizes { grid-template-columns: repeat(5, 1fr); }
+  .sizes button { padding: 12px 0; }
+
+  /* el botón de WhatsApp queda siempre a mano */
+  .cta { position: sticky; bottom: 12px; z-index: 5; box-shadow: 0 6px 20px rgba(0, 0, 0, .45); }
+}
