@@ -70,7 +70,6 @@ export const CATALOG: Brand[] = [
             id: 'f50-con-cordones-f11',
             title: 'F50 · Con cordones',
             badge: 'Fútbol 11',
-     
             price: 149999,
             folder: 'adidas/f50/cordones-f11',
             prefix: 'f50',
@@ -80,7 +79,6 @@ export const CATALOG: Brand[] = [
             id: 'f50-f5',
             title: 'F50 · F5',
             badge: 'Fútbol 5',
-      
             price: 149999,
             folder: 'adidas/f50/f5',
             layout: 'folders',
@@ -90,7 +88,6 @@ export const CATALOG: Brand[] = [
             id: 'f50-f11-messi',
             title: 'F50 · Messi',
             badge: 'Fútbol 11',
-            
             price: 149999,
             folder: 'adidas/messi-sinCordones',
             prefix: 'f50',
@@ -107,7 +104,6 @@ export const CATALOG: Brand[] = [
             id: 'predator-sin-cordones-f11',
             title: 'Predator · Sin cordones',
             badge: 'Fútbol 11',
-     
             price: 149999,
             folder: 'adidas/predator/f11',
             layout: 'folders',
@@ -117,7 +113,6 @@ export const CATALOG: Brand[] = [
             id: 'predator-con-cordones-f11',
             title: 'Predator · Con cordones',
             badge: 'Fútbol 11',
-         
             price: 149999,
             folder: 'adidas/predator/f11-cordones',
             layout: 'folders',
@@ -127,7 +122,6 @@ export const CATALOG: Brand[] = [
             id: 'predator-con-lengua-f11',
             title: 'Predator · Con lengua',
             badge: 'Fútbol 11',
-         
             price: 149999,
             folder: 'adidas/predator/f11-lengua',
             layout: 'folders',
@@ -137,7 +131,6 @@ export const CATALOG: Brand[] = [
             id: 'predator-f5',
             title: 'Predator · Fútbol 5',
             badge: 'Fútbol 5',
-           
             price: 149999,
             folder: 'adidas/predator/f5',
             layout: 'folders',
@@ -154,7 +147,6 @@ export const CATALOG: Brand[] = [
             id: 'copa-sin-cordones-f11',
             title: 'Copa · Sin cordones',
             badge: 'Fútbol 11',
-           
             price: 149999,
             folder: 'adidas/copa/f11',
             layout: 'folders',
@@ -187,10 +179,39 @@ export const CATALOG: Brand[] = [
     name: 'Nike',
     models: [
       { id: 'gx3', name: 'Phantom GX3', tagline: 'Control y precisión', designs: nikeDesigns('gx3', 'Phantom GX3') },
-      { id: 'gx2', name: 'Phantom GX2', tagline: 'Control y precisión', designs: nikeDesigns('gx2', 'Phantom GX2') },
-      { id: 'mercurial', name: 'Mercurial 1', tagline: 'Velocidad', designs: nikeDesigns('mercurial', 'Mercurial 1').filter((d) => !d.id.includes('sin-cordones')),},
-      { id: 'mercurial-2', name: 'Mercurial 2', tagline: 'Velocidad', designs: nikeDesigns('mercurial-2', 'Mercurial 2').filter((d) => !d.id.includes('sin-cordones')),},
+      {
+  id: 'gx2',
+  name: 'Phantom GX2',
+  tagline: 'Control y precisión',
+  designs: nikeDesigns('gx2', 'Phantom GX2').filter((d) => !d.id.includes('sin-cordones')),
+},
+      {
+        id: 'mercurial',
+        name: 'Mercurial 1',
+        tagline: 'Velocidad',
+        designs: nikeDesigns('mercurial', 'Mercurial 1').filter((d) => !d.id.includes('sin-cordones')),
+      },
+      {
+        id: 'mercurial-2',
+        name: 'Mercurial 2',
+        tagline: 'Velocidad',
+        designs: nikeDesigns('mercurial-2', 'Mercurial 2').filter((d) => !d.id.includes('sin-cordones')),
+      },
     ],
   },
   { id: 'puma', name: 'Puma', models: [] },
 ];
+
+// ===== PRECIOS =====
+// Fútbol 11 → 150.000 · todo lo demás (Fútbol 5, Futsal...) → 140.000
+// Esta regla pisa los "price" de arriba. Para cambiar precios, tocá solo estas dos líneas.
+const PRECIO_F11 = 150000;
+const PRECIO_RESTO = 140000;
+
+for (const brand of CATALOG) {
+  for (const model of brand.models) {
+    for (const design of model.designs) {
+      design.price = /\b11\b/.test(design.badge) ? PRECIO_F11 : PRECIO_RESTO;
+    }
+  }
+}
