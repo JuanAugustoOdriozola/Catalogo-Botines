@@ -102,7 +102,7 @@ export default function Catalog() {
   const waLink =
     design && variant
       ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
-          `Hola, como estas?? Me interesan los ${brand.name} ${design.title} (${variant.label})${size ? ` en el talle ${size}` : ""}`,
+          `Me interesan los ${brand.name} ${design.title} (${variant.label})${size ? ` en el talle ${size}` : ""}`,
         )}`
       : "#";
 
