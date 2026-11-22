@@ -201,9 +201,6 @@ export const CATALOG: Brand[] = [
   { id: 'puma', name: 'Puma', models: [] },
 ];
 
-// ===== PRECIOS =====
-// Fútbol 11 → 150.000 · todo lo demás (Fútbol 5, Futsal...) → 140.000
-// Esta regla pisa los "price" de arriba. Para cambiar precios, tocá solo estas dos líneas.
 const PRECIO_F11 = 150000;
 const PRECIO_RESTO = 140000;
 
