@@ -231,6 +231,22 @@ export const CATALOG: Brand[] = [
         tagline: 'Velocidad',
         designs: nikeDesigns('mercurial-2', 'Mercurial 2').filter((d) => !d.id.includes('sin-cordones')),
       },
+      {
+        id: 'futsal',
+        name: 'Nike Futsal',
+        tagline: 'Velocidad',
+        designs: [
+          {
+            id: 'futsal-f5',
+            title: 'Nike Futsal',
+            badge: 'Fútbol sala',
+            price: 140.000, 
+            folder: 'nike/futsal/futsal',
+            layout: 'folders',
+            sizes: SIZES,
+          },
+        ],
+      },
     ],
   },
   { id: 'puma', name: 'Puma', models: [] },
